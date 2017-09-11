@@ -9,24 +9,81 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
 a matrix is a collection of vectors stored together; they can only store data of one class; created using the matrix() function
+
+m <- matrix(data = c(1, 2, 3, 4), nrow = 2, ncol = 2)
+m
+
+m <- matrix(data = c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3, byrow = FALSE)
+m
+
+m <- matrix(data = c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3, byrow = TRUE)
+m
+
+v1 <- c(1, 2, 3, 4)
+v2 <- c(6, 7, 8, 9)
+m1 <- rbind(v1, v2)
+m1
+
+m2 <- cbind(v1, v2)
+m2
+
+class(m1)
+dim(m1)
+class(m2)
+dim(m2)
+colnames(m2)
+rownames(m2)
+
+str(m2)
+
+arrays are more general data structures that can include additional dimensions
+
+a <- array(data = 1:90, dim = c(5, 6, 3))
+a
+
+v <- 1:100
+v
+
+v[1:15]
+
+v[c(2, 4, 6, 8, 10)]
+
+v <- 101:200
+v[seq(from = 1, to = 100, by = 2)]
+
+
+# Challenge 1
+
+#create a vector of 1 word character strings comprising the first line of the Ulysses
+v <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
+
+v2 <- gsub("[[:punct:]]","",v)
+
+
+# extract every third element of this vector
+# need help with this
+v3 <- str_split(v2, " ")
+v3
+
+# Challenge 2
+
+m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
+m
+
+x <- m[c(2, 3, 6), ]
+x
+
+x <- m[ ,c(6,7,8)]
+x
+
+x <- m[c(2:6), c(2:9)]
+x
+
+# Challenge 3
+a <- matrix(data= 1:400)
+
+
+
+
+
