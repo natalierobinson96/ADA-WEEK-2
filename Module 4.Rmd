@@ -152,3 +152,10 @@ new_df <- df[df$school == "BU", ]
 new_df
 new_df <- df[df$school == "BU", c("name.last", "name.first", "school")]
 new_df
+
+# Challenge 5
+l <- list(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2)
+m <- matrix(data = l, nrow=5, ncol=3)
+m
+
+#coerce the matrix into a data frame
