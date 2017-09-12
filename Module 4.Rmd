@@ -50,16 +50,15 @@ v[seq(from = 1, to = 100, by = 2)]
 
 # Challenge 1
 
-#create a vector of 1 word character strings comprising the first line of the Ulysses
+#create a vector of 1 word character strings comprising the first line of the Ulysses, then extract every third element
 v <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
 
 v2 <- gsub("[[:punct:]]","",v)
 
-
-# extract every third element of this vector
-# need help with this
 v3 <- str_split(v2, " ")
-v3
+v4 <- unlist(v3)
+v5 <- v4[c(1, 4, 7, 11, 14, 17, 21)]
+v5
 
 # Challenge 2
 
@@ -155,7 +154,7 @@ new_df
 
 # Challenge 5
 l <- list(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2)
-m <- matrix(data = l, nrow=5, ncol=3)
+m <- matrix(data = l, nrow=5, ncol=3, byrow = TRUE)
 m
 
 #coerce the matrix into a data frame
