@@ -5,7 +5,11 @@ date: "September 10, 2017"
 output: html_document
 ---
 
+# Notes
+
 a matrix is a collection of vectors stored together; they can only store data of one class; created using the matrix() function
+
+# Examples
 
 m <- matrix(data = c(1, 2, 3, 4), nrow = 2, ncol = 2)
 m
@@ -63,7 +67,6 @@ v5
 # Challenge 2
 
 m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
-m
 
 x <- m[c(2, 3, 6), ]
 x
@@ -110,12 +113,35 @@ l$matrix[3, 5]
 
 # Challenge 4
 # finish!!
-order <- "Primates"
-suborder <- c("Haplorhini", "Strepsirhini")
-suborder2 <- c("Anthropoidea", "Tarsioidea", "Lorisoidea", "Lemuroidea")
-family <- c("Platyrrhini", "Catarrhini", "Tarsiidae", "Lorisidae", "Galagidae", "Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
 
-l <- list(order, suborder)
+Primates <- list(Haplorhini, Strepsirhini)
+names(Primates) <- c("Haplorhini", "Strepsirhini")
+
+Haplorhini <- list(Anthropoidea, Tarsoidea)
+names(Haplorhini) <- c("Anthropoidea", "Tarsoidea")
+
+Anthropoidea <- list(Platyrrhini, Catarrhini)
+names(Anthropoidea) <- c("Platyrrhini", "Catarrhini")
+
+Platyrrhini <- list("Cebidae", "Atelidae", "Pitheciidae")
+names(Platyrrhini) <- c("Cebidae", "Atelidae", "Pitheciidae")
+
+Catarrhini <- list("Cercopithecidae", "Hylobatidae", "Hominidae")
+names(Catarrhini) <- c("Cercopithecidae", "Hylobatidae", "Hominidae")
+
+Tarsoidea <- list("Tarsiidae")
+names(Tarsoidea) <- c("Tarsiidae")
+
+Strepsirhini <- list(Lorisoidea, Lemuroidea)
+names(Strepsirhini) <- c("Lorisoidea", "Lemuroidea")
+
+Lorisoidea <- list("Lorisidae", "Galagidae")
+names(Lorisoidea) <- c("Lorisidae", "Galagidae")
+
+Lemuroidea <- list("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
+names(Lemuroidea) <- c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
+
+l <- list(list(Primates), list(Haplorhini), list(Anthropoidea), list(Platyrrhini), list(Catarrhini), list(Tarsioidea), list(Strepsirhini), list(Lorisoidea), list(Lemuroidea))
 l
 
 # Data Frames
