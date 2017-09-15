@@ -27,8 +27,11 @@ v <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of la
 v2 <- gsub("[[:punct:]]","",v)
 
 v3 <- str_split(v2, " ")
+
 v4 <- unlist(v3)
+
 v5 <- v4[c(1, 4, 7, 11, 14, 17, 21)]
+
 v5
 
 # Challenge 2
@@ -36,10 +39,15 @@ v5
 m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
 
 x <- m[ ,c(2, 3, 6)]
+
 x
+
 x <- m[c(6,7,8), ]
+
 x
+
 x <- m[c(2:6), c(2:9)]
+
 x
 
 # Challenge 3
@@ -92,15 +100,21 @@ l
 
 # Challenge 5
 l <- list(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2)
+
 m <- matrix(data = l, nrow=5, ncol=3, byrow = TRUE)
+
 m
 
 df <- data.frame(m)
+
 df
 
 df[ ,2] <- as.logical(df[ ,2])
+
 df[ ,3] <- as.character(df[ ,3])
+
 df[ ,3] <- as.factor(df[ ,3])
+
 df
 
 str(df)
