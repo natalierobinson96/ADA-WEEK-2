@@ -9,77 +9,24 @@ output: html_document
 
 a matrix is a collection of vectors stored together; they can only store data of one class; created using the matrix() function
 
-# Examples
+Examples:
 
 m <- matrix(data = c(1, 2, 3, 4), nrow = 2, ncol = 2)
 m
 
-m <- matrix(data = c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3, byrow = FALSE)
-m
-
-m <- matrix(data = c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3, byrow = TRUE)
-m
+You can also create matrices by binding vectors of the same length together ( rbind() or cbind())
 
 v1 <- c(1, 2, 3, 4)
 v2 <- c(6, 7, 8, 9)
 m1 <- rbind(v1, v2)
 m1
 
-m2 <- cbind(v1, v2)
-m2
-
-class(m1)
-dim(m1)
-class(m2)
-dim(m2)
-colnames(m2)
-rownames(m2)
-
-str(m2)
+Metadata can be extracted using class(), dim(), class(), dim(), colnames(), rownames(), str()
 
 arrays are more general data structures that can include additional dimensions
 
 a <- array(data = 1:90, dim = c(5, 6, 3))
 a
-
-v <- 1:100
-v
-
-v[1:15]
-v[c(2, 4, 6, 8, 10)]
-
-v <- 101:200
-v[seq(from = 1, to = 100, by = 2)]
-
-
-# Challenge 1
-
-#create a vector of 1 word character strings comprising the first line of the Ulysses, then extract every third element
-v <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
-
-v2 <- gsub("[[:punct:]]","",v)
-
-v3 <- str_split(v2, " ")
-v4 <- unlist(v3)
-v5 <- v4[c(1, 4, 7, 11, 14, 17, 21)]
-v5
-
-# Challenge 2
-
-m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
-
-x <- m[c(2, 3, 6), ]
-x
-x <- m[ ,c(6,7,8)]
-x
-x <- m[c(2:6), c(2:9)]
-x
-
-# Challenge 3
-a <- array(data = 400:1, dim= c(5, 5, 4, 4))
-a[1,1,1,2]
-a[2,3,2,]
-a[1:5, 1:5, 3,3]
 
 # this will overwrite
 m[7, 1] <- 564
@@ -110,39 +57,6 @@ names(l)
 
 l$string
 l$matrix[3, 5]
-
-# Challenge 4
-# finish!!
-
-Primates <- list(Haplorhini, Strepsirhini)
-names(Primates) <- c("Haplorhini", "Strepsirhini")
-
-Haplorhini <- list(Anthropoidea, Tarsoidea)
-names(Haplorhini) <- c("Anthropoidea", "Tarsoidea")
-
-Anthropoidea <- list(Platyrrhini, Catarrhini)
-names(Anthropoidea) <- c("Platyrrhini", "Catarrhini")
-
-Platyrrhini <- list("Cebidae", "Atelidae", "Pitheciidae")
-names(Platyrrhini) <- c("Cebidae", "Atelidae", "Pitheciidae")
-
-Catarrhini <- list("Cercopithecidae", "Hylobatidae", "Hominidae")
-names(Catarrhini) <- c("Cercopithecidae", "Hylobatidae", "Hominidae")
-
-Tarsoidea <- list("Tarsiidae")
-names(Tarsoidea) <- c("Tarsiidae")
-
-Strepsirhini <- list(Lorisoidea, Lemuroidea)
-names(Strepsirhini) <- c("Lorisoidea", "Lemuroidea")
-
-Lorisoidea <- list("Lorisidae", "Galagidae")
-names(Lorisoidea) <- c("Lorisidae", "Galagidae")
-
-Lemuroidea <- list("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
-names(Lemuroidea) <- c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
-
-l <- list(list(Primates), list(Haplorhini), list(Anthropoidea), list(Platyrrhini), list(Catarrhini), list(Tarsioidea), list(Strepsirhini), list(Lorisoidea), list(Lemuroidea))
-l
 
 # Data Frames
 df <- data.frame(firstName = c("Nitin", "Silvy", "Ingrid", "Claire"), program = c("iSchool", 
@@ -178,10 +92,90 @@ new_df
 new_df <- df[df$school == "BU", c("name.last", "name.first", "school")]
 new_df
 
+# Challenge 1
+
+create a vector of 1 word character strings comprising the first line of the Ulysses, then extract every third element
+
+v <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
+
+v2 <- gsub("[[:punct:]]","",v)
+
+v3 <- str_split(v2, " ")
+v4 <- unlist(v3)
+v5 <- v4[c(1, 4, 7, 11, 14, 17, 21)]
+v5
+
+# Challenge 2
+
+m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
+
+x <- m[ ,c(2, 3, 6)]
+x
+x <- m[c(6,7,8), ]
+x
+x <- m[c(2:6), c(2:9)]
+x
+
+# Challenge 3
+a <- array(data = 400:1, dim= c(5, 5, 4, 4))
+
+a[1,1,1,2] returns [1] 300
+
+a[2,3,2,] returns [1] 364 264 164  64
+
+a[1:5, 1:5, 3,3] returns 
+
+      [,1] [,2] [,3] [,4] [,5]
+[1,]  150  145  140  135  130
+[2,]  149  144  139  134  129
+[3,]  148  143  138  133  128
+[4,]  147  142  137  132  127
+[5,]  146  141  136  131  126
+
+# Challenge 4
+
+Primates <- list(Haplorhini, Strepsirhini)
+names(Primates) <- c("Haplorhini", "Strepsirhini")
+
+Haplorhini <- list(Anthropoidea, Tarsoidea)
+names(Haplorhini) <- c("Anthropoidea", "Tarsoidea")
+
+Anthropoidea <- list(Platyrrhini, Catarrhini)
+names(Anthropoidea) <- c("Platyrrhini", "Catarrhini")
+
+Platyrrhini <- list("Cebidae", "Atelidae", "Pitheciidae")
+names(Platyrrhini) <- c("Cebidae", "Atelidae", "Pitheciidae")
+
+Catarrhini <- list("Cercopithecidae", "Hylobatidae", "Hominidae")
+names(Catarrhini) <- c("Cercopithecidae", "Hylobatidae", "Hominidae")
+
+Tarsioidea <- list("Tarsiidae")
+names(Tarsoidea) <- c("Tarsiidae")
+
+Strepsirhini <- list(Lorisoidea, Lemuroidea)
+names(Strepsirhini) <- c("Lorisoidea", "Lemuroidea")
+
+Lorisoidea <- list("Lorisidae", "Galagidae")
+names(Lorisoidea) <- c("Lorisidae", "Galagidae")
+
+Lemuroidea <- list("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
+names(Lemuroidea) <- c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
+
+l <- list(list(Primates), list(Haplorhini), list(Anthropoidea), list(Platyrrhini), list(Catarrhini), list(Tarsioidea), list(Strepsirhini), list(Lorisoidea), list(Lemuroidea))
+l
+
 # Challenge 5
 l <- list(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2)
 m <- matrix(data = l, nrow=5, ncol=3, byrow = TRUE)
 m
 
-#coerce the matrix into a data frame
-testing
+df <- data.frame(m)
+df
+
+c2 <- as.logical(df[ ,2])
+c3 <- as.factor(df[ ,3])
+
+df <- cbind(df[ ,1], c2, c3)
+df
+
+str(df)
