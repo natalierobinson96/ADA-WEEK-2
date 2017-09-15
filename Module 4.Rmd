@@ -7,94 +7,20 @@ output: html_document
 
 # Notes
 
-a matrix is a collection of vectors stored together; they can only store data of one class; created using the matrix() function
+* A matrix is a collection of vectors stored together; they can only store data of one class; created using the matrix() function
 
-Examples:
+* You can also create matrices by binding vectors of the same length together ( rbind() or cbind())
 
-m <- matrix(data = c(1, 2, 3, 4), nrow = 2, ncol = 2)
-m
+* Metadata can be extracted using class(), dim(), class(), dim(), colnames(), rownames(), str()
 
-You can also create matrices by binding vectors of the same length together ( rbind() or cbind())
+* Arrays are more general data structures that can include additional dimensions
 
-v1 <- c(1, 2, 3, 4)
-v2 <- c(6, 7, 8, 9)
-m1 <- rbind(v1, v2)
-m1
+* You can overwrite by identifying the elements to be replaced and then assigning them new values
 
-Metadata can be extracted using class(), dim(), class(), dim(), colnames(), rownames(), str()
-
-arrays are more general data structures that can include additional dimensions
-
-a <- array(data = 1:90, dim = c(5, 6, 3))
-a
-
-# this will overwrite
-m[7, 1] <- 564
-m[, 8] <- 2
-m[2:5, 4:8] <- 1
-m[2:5, 4:8] <- c(20, 19, 18, 17)
-m[2:5, 4:8] <- matrix(data = c(20:1), nrow = 4, ncol = 5, byrow = TRUE)
-m[, 8] <- c("a", "b")
-
-# Lists and Data Frames
-# Lists and data frames can be used to group together a mix of structures and objects
-s <- c("this", "is", "a", "vector", "of", "strings")
-m <- matrix(data = 1:40, nrow = 5, ncol = 8)  # this is a matrix
-b <- FALSE
-l <- list(s, m, b)
-l
-
-# extract elements using double brackets
-l[[2]]
-l[[2]][2,6]
-l[1:2]
-
-l[c(1, 3)]
-str(l)
-
-names(l) <- c("string", "matrix", "logical")
-names(l)
-
-l$string
-l$matrix[3, 5]
-
-# Data Frames
-df <- data.frame(firstName = c("Nitin", "Silvy", "Ingrid", "Claire"), program = c("iSchool", 
-    "Anthro", "Anthro", "EEB"), sex = c("M", "F", "F", "F"), yearInProgram = c(1, 
-    2, 2, 3))
-df
-
-df <- read.csv("~/Desktop/random-people.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE)
-# only print select columns
-df[, c(1, 3, 4, 11, 12)]
-str(df)
-df[, 3]
-str(df[, 3])
-df$name.last
-str(df$name.last)
-df[3]
-str(df[3])
-df["name.last"]
-str(df["name.last"])
-df <- cbind(df, id = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
-    17, 18, 19, 20))
-df <- cbind(df, school = c("BU", "BU", "Harvard", "Harvard", "BU", "Boston College", 
-    "MIT", "BU", "BU", "UMASS Boston", "Harvard", "BU", "Boston College", "BU", 
-    "Harvard", "MIT", "Harvard", "BU", "UMASS Boston", "Harvard"))
-df
-df$school <- c("BU", "BU", "Harvard", "Harvard", "BU", "Boston College", "MIT", 
-    "BU", "BU", "UMASS Boston", "Harvard", "BU", "Boston College", "BU", "Harvard", 
-    "MIT", "Harvard", "BU", "UMASS Boston", "Harvard")
-    
-# Filtering
-new_df <- df[df$school == "BU", ]
-new_df
-new_df <- df[df$school == "BU", c("name.last", "name.first", "school")]
-new_df
+* Lists and data frames can be used to group together a mix of structures and objects (extract elements using double brackets)
+data.frame() command to create dataframes from scratch, can also read from files
 
 # Challenge 1
-
-create a vector of 1 word character strings comprising the first line of the Ulysses, then extract every third element
 
 v <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
 
